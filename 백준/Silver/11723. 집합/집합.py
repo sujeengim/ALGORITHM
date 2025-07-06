@@ -3,39 +3,34 @@ import sys
 s = set()
 
 def commands(command:list):
-    global s 
+    global s
 
     cmd = command[0]
-    num = int(command[1]) if len(command) > 1 else None 
-
     if cmd == 'add':
-        s.add(num) 
+        s.add(int(command[1]))
     elif cmd == 'remove':
-        
-        if num in s:
-            s.remove(num) 
+        if int(command[1]) in s:
+            s.remove(int(command[1]))
     elif cmd == 'check':
-        print(1 if num in s else 0)
+        print(1 if int(command[1]) in s else 0)
     elif cmd == 'toggle':
-        if num in s:
-            s.remove(num)
+        if int(command[1]) in s:
+            s.remove(int(command[1]))
         else:
-            s.add(num)
+            s.add(int(command[1]))
     elif cmd == 'all':
-        s = set(range(1,21)) 
+        s = set(range(1,21))
     elif cmd == 'empty':
-        s.clear() 
- 
+        s.clear()
+    else:
+        pass
+
 def main():
     m = int(input())
 
     for _ in range(m):
         command = sys.stdin.readline().strip().split()
-
-        if command[0] == 'all' or command[0] == 'empty':
-            commands(command)
-        else:
-            commands(command)
+        commands(command)
 
 if __name__ == "__main__":
     main()
