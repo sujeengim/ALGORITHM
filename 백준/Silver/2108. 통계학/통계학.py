@@ -1,25 +1,34 @@
-import sys, math
+import sys
 from collections import Counter
 
-n = int(input())
-nlist = sorted([int(sys.stdin.readline().strip()) for _ in range(n)])
+# 1. 입력 처리: 한 줄로 끝내고, nlist는 이미 정렬되어 있음
+N = int(sys.stdin.readline())
+nlist = sorted([int(sys.stdin.readline().strip()) for _ in range(N)])
 
-print(math.floor((sum(nlist)/n)+0.5)) #산술평균
-print(nlist[n//2]) #중앙값
+# 2. 산술평균 (소수점 첫째 자리에서 반올림)
+# 파이썬 내장 round() 사용
+avg = round(sum(nlist) / N)
+print(avg)
 
-#최빈값
-cnt = dict(Counter(nlist)) 
-filter_cnt = {}
+# 3. 중앙값
+mid_value = nlist[N // 2]
+print(mid_value)
 
-for k, v in cnt.items():
-    if v == max(cnt.values()):
-        filter_cnt.update({k:v})
+# 4. 최빈값 (가장 효율적인 방식)
+cnt = Counter(nlist) # 각 숫자의 빈도수를 딕셔너리 형태로 저장
+max_count = max(cnt.values()) 
 
-if len(filter_cnt) > 1:#최빈값이 여러개면 두번째로 작은 값
-    filter_cnt = sorted(filter_cnt)[1:] #최소값 제거 
-    print(filter_cnt[0])#그다음 최소값 출력 
-else:#최빈값이 하나면 그 값
-    print(list(filter_cnt.keys())[0]) 
+# 최대 빈도수와 동일한 값을 가진 요소(키)들을 리스트로 모읍니다.
+modes = [k for k, v in cnt.items() if v == max_count]
 
-# 범위 
-print(nlist[-1]-nlist[0])
+if len(modes) > 1:
+    # 최빈값이 여러 개일 경우: 정렬하여 두 번째로 작은 값 출력
+    modes.sort()
+    print(modes[1]) # 정렬된 리스트의 1번 인덱스 (두 번째 작은 값)
+else:
+    # 최빈값이 하나일 경우: 유일한 값 출력
+    print(modes[0])
+
+# 5. 범위
+range_value = nlist[-1] - nlist[0]
+print(range_value)
