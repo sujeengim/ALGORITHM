@@ -6,7 +6,7 @@ def r31(input):
     sum = 0
     for idx, i in enumerate(input):
         sum += 31**idx * abc[i]
-    return sum
+    return sum % 1234567891
 
 n = int(input())
 input_string = sys.stdin.readline().strip()
