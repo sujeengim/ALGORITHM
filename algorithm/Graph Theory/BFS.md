@@ -24,10 +24,10 @@ def bfs(graph, start_node):
     while queue:
         v = queue.popleft() #하나씩 꺼내서 탐색시작
         
-        for neighbor in graph[v]: 
+        for neighbor in graph[v]: #현재 노드에 연결된 모든 노드들
             if not visited[neighbor]: # 방문한 적 없으면 
                 visited[neighbor] = True
-                queue.append(neighbor) # 큐에 추가해서 탐색
+                queue.append(neighbor) # 큐에 추가해서 나중에 탐색
 
 # 예시 그래프 
 graph = [
