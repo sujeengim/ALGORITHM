@@ -1,6 +1,6 @@
 <img width="554" height="292" alt="image" src="https://github.com/user-attachments/assets/0b238830-cceb-4d96-94de-2aa01d33459d" />
 
-### DFS : 깊이 우선 탐색 
+### DFS : 깊이 우선 탐색 => Stack
 #### 한 방향으로 최대한 깊게 파고들어 탐색합니다. 
 
 #### 재귀 사용 구현
