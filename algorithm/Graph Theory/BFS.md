@@ -1,7 +1,7 @@
 <img width="554" height="292" alt="image" src="https://github.com/user-attachments/assets/0b238830-cceb-4d96-94de-2aa01d33459d" />
 
-### BFS : 너비 우선 탐색 
-#### 시작점에서 가까운 노드부터 수평적으로 탐색합니다. (큐 사용)
+### BFS : 너비 우선 탐색 => Queue
+#### 시작점에서 가까운 노드부터 수평적으로 탐색합니다. 
 
 그래프 탐색에서 신경쓸 부분은
 저장이다.
